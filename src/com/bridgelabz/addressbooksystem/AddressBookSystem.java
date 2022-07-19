@@ -10,5 +10,8 @@ public class AddressBookSystem {
             addressBook.addContact();
             System.out.print(addressBook.showInfo());
 
+             addressBook.editContact();
+              System.out.print(addressBook.showInfo());
+
         }
 }
