@@ -11,7 +11,10 @@ public class AddressBookSystem {
             System.out.print(addressBook.showInfo());
 
              addressBook.editContact();
-              System.out.print(addressBook.showInfo());
+             System.out.print(addressBook.showInfo());
+
+             addressBook.deleteContact();
+             System.out.print(addressBook.showInfo());
 
         }
 }

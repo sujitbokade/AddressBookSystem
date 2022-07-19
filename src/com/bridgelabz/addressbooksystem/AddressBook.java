@@ -24,10 +24,10 @@ public class AddressBook {
         System.out.println("Enter Email Address:");
         contact.setEmail(sc.next());
     }
-    void editContact(){
+    void editContact() {
         System.out.println("Enter first name to for edit information");
-        String firstname=sc.next();
-        if(firstname.equals((contact.getFirstName()))){
+        String firstname = sc.next();
+        if (firstname.equals((contact.getFirstName()))) {
             System.out.println("Edit Information");
             System.out.println("Enter First Name: ");
             contact.setFirstName(sc.next());
@@ -52,11 +52,24 @@ public class AddressBook {
 
             System.out.println("Enter Email: ");
             contact.setEmail(sc.next());
-        }
-        else {
+        } else {
             System.out.println("Invalid Person!");
         }
     }
+         void deleteContact(){
+            System.out.println("Enter the first name of person to delete");
+            String firstName = sc.next();
+
+            if (firstName.equals(contact.getFirstName())){
+                contact=null;
+                System.out.println("Information deleted Successfully");
+            }
+            else{
+                System.out.println("no contact found");
+            }
+
+        }
+
     Contact showInfo(){
         return contact;
     }
