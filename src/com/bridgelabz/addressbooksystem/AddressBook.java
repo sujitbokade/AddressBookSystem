@@ -112,11 +112,15 @@ public class AddressBook {
 
     }
 
-    void showInfo(ArrayList addressBook){
+void showInfo(ArrayList addressBook){
         System.out.println("Contacts: ");
         for (Object ab : addressBook) {
             Contact person= (Contact) ab;
             System.out.println(person);
         }
     }
+    boolean checkDuplicateContact(Contact newPerson) {
+        return currentAddressBook.stream().anyMatch((person) -> person.getFirstName().equalsIgnoreCase(newPerson.getFirstName()));
+    }
+
 }

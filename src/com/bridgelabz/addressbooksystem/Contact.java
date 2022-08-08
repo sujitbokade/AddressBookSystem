@@ -98,7 +98,7 @@ public class Contact {
                     "city= " + city + '\n' +
                     "state= " + state + '\n' +
                     "zip=" + zip +'\n'+
-                    "phoneNumber=" + mobileNumber +'\n'+
+                    "mobileNumber=" + mobileNumber +'\n'+
                     "email= " + email + '\n' + "}";
 
         }
