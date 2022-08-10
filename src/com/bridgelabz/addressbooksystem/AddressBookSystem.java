@@ -31,7 +31,7 @@ public class AddressBookSystem {
                     addressBook.editContact();
                     break;
                 case 3:
-                    addressBook.showInfo(addressBook.currentAddressBook);
+                    addressBook.viewContacts();
                     break;
                 case 4:
                     addressBook.deleteContact();

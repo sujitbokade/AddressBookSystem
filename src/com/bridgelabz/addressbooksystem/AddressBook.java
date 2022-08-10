@@ -9,6 +9,9 @@ public class AddressBook {
     static ArrayList <Contact> currentAddressBook;
     static String currentAddressBookName;
     static Scanner scanner=new Scanner(System.in);
+    static HashMap<String, Contact> cityContactList = new HashMap<>();
+    static HashMap<String, Contact> stateContactList = new HashMap<>();
+
 
 
     Contact createContact(){
@@ -111,14 +114,41 @@ public class AddressBook {
         System.out.println("current AddressBook is "+currentAddressBookName);
 
     }
-
-void showInfo(ArrayList addressBook){
-        System.out.println("Contacts: ");
-        for (Object ab : addressBook) {
-            Contact person= (Contact) ab;
-            System.out.println(person);
+    void viewContacts() {
+        System.out.println("-----\n1.View by City \n2.View by State");
+        switch (scanner.nextInt()) {
+            case 1:
+                viewContactByCity();
+                break;
+            case 2:
+                viewContactByState();
+                break;
+            default:
+                viewContacts();
+                break;
         }
     }
+
+    void viewContactByCity() {
+        System.out.println("Enter City:");
+        String city = scanner.next();
+        for (String key : cityContactList.keySet()) {
+            if (key.equalsIgnoreCase(city)){
+                System.out.println(cityContactList.get(city));
+            }
+        }
+    }
+
+    void viewContactByState() {
+        System.out.println("Enter State:");
+        String state = scanner.next();
+        for (String key : stateContactList.keySet()) {
+            if (key.equalsIgnoreCase(state)){
+                System.out.println(stateContactList.get(state));
+            }
+        }
+    }
+
     boolean checkDuplicateContact(Contact newPerson) {
         return currentAddressBook.stream().anyMatch((person) -> person.getFirstName().equalsIgnoreCase(newPerson.getFirstName()));
     }
