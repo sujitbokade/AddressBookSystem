@@ -2,7 +2,9 @@ package com.bridgelabz.addressbooksystem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBook {
     static HashMap<String,ArrayList> addressBookList=new HashMap<String, ArrayList>();
@@ -210,6 +212,11 @@ public class AddressBook {
                 showContactCount();
                 break;
         }
+    }
+    void sortContact(){
+        List<Contact> list = currentAddressBook.stream().sorted().collect(Collectors.toList());
+        list.stream().forEach(person -> System.out.println(person));
+
     }
 
 }

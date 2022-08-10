@@ -102,5 +102,11 @@ public class Contact {
                     "email= " + email + '\n' + "}";
 
         }
+
+    public int compareTo(Object o) {
+        Contact person= (Contact) o;
+        return this.getFirstName().compareTo(person.getFirstName());
     }
+}
+
 
