@@ -11,7 +11,7 @@ public class AddressBookSystem {
 
         boolean exit = true;
         do {
-            System.out.println(""+AddressBook.AddressBookList.keySet());
+            System.out.println(""+AddressBook.addressBookList.keySet());
             System.out.println("current AddressBook Name is: "+addressBook.currentAddressBookName);
 
             System.out.println("Enter 1 to Add Contact");
@@ -43,6 +43,9 @@ public class AddressBookSystem {
                     addressBook.selectAddressBook();
                     break;
                 case 7:
+                    addressBook.searchContact();
+                    break;
+                case 8:
                     exit = false;
                 default:
                     break;
