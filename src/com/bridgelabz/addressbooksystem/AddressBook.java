@@ -9,8 +9,8 @@ public class AddressBook {
     static ArrayList <Contact> currentAddressBook;
     static String currentAddressBookName;
     static Scanner scanner=new Scanner(System.in);
-    static HashMap<String, Contact> cityContactList = new HashMap<>();
-    static HashMap<String, Contact> stateContactList = new HashMap<>();
+    static HashMap<String, ArrayList<Contact>> cityContactList = new HashMap<>();
+    static HashMap<String,  ArrayList<Contact>> stateContactList = new HashMap<>();
 
 
 
@@ -190,6 +190,25 @@ public class AddressBook {
                     System.out.println(person);
                 }
             }
+        }
+    }
+    void showContactCount() {
+        System.out.println("1.Count of City \n2.Count of State");
+        int option = scanner.nextInt();
+        switch (option) {
+            case 1:
+                System.out.println("Enter city :");
+                String city = scanner.next();
+                System.out.println("Count: " + cityContactList.get(city).size());
+                break;
+            case 2:
+                System.out.println("Enter State :");
+                String state = scanner.next();
+                System.out.println("Count: " + stateContactList.get(state).size());
+                break;
+            default:
+                showContactCount();
+                break;
         }
     }
 

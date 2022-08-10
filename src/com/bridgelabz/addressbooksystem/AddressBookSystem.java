@@ -46,6 +46,9 @@ public class AddressBookSystem {
                     addressBook.searchContact();
                     break;
                 case 8:
+                    addressBook.showContactCount();
+                    break;
+                case 9:
                     exit = false;
                 default:
                     break;
