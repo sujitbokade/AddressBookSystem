@@ -1,9 +1,10 @@
 package com.bridgelabz.addressbooksystem;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AddressBookSystem {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to Address Book Program");
         AddressBook addressBook = new AddressBook();
         Scanner sc = new Scanner(System.in);
@@ -20,6 +21,11 @@ public class AddressBookSystem {
             System.out.println("Enter 4 to Delete");
             System.out.println("Enter 5 to Add New AddressBook");
             System.out.println("Enter 6 to Select AddressBook");
+            System.out.println("Enter 7 to Search Contact");
+            System.out.println("Enter 8 to Show Contact Count");
+            System.out.println("Enter 9 to Sort Contact");
+            System.out.println("Enter 10 to Write Contacts");
+            System.out.println("Enter 11 to Read Contacts");
             System.out.println("Enter 7 to Exit");
             int option = sc.nextInt();
             switch (option) {
@@ -52,6 +58,12 @@ public class AddressBookSystem {
                     addressBook.sortContact();
                     break;
                 case 10:
+                    addressBook.writeAddressBook();
+                    break;
+                case 11:
+                    addressBook.readAddressBook();
+                    break;
+                case 12:
                     exit = false;
                 default:
                     break;

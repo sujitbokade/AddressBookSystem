@@ -1,0 +1,4 @@
+
+Contacts{firstName='sujit', lastName='bokade', address='barshi', city='barshi', state='Mah', zip=0212, phoneNumber=2345, email='sujit@gmail.com'}
+
+Contacts{firstName='rohan', lastName='mane', address='solapur', city='solapur', state='mah', zip=231, phoneNumber=1215, email='rohan@gmail.com'}
