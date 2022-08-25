@@ -1,6 +1,6 @@
 package com.bridgelabz.addressbooksystem;
 
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,9 +30,9 @@ public class AddressBook {
         System.out.println("Enter state");
         String state=scanner.next();
         System.out.println("Enter Mobile Number");
-        long mobNumber=scanner.nextLong();
+        String mobNumber=scanner.next();
         System.out.println("Enter ZipCode");
-        int zipCode=scanner.nextInt();
+        String zipCode=scanner.next();
         System.out.println("Enter Email");
         String email=scanner.next();
 
@@ -62,9 +62,9 @@ public class AddressBook {
                 System.out.println("Enter state");
                 person.setState(scanner.next());
                 System.out.println("Enter phoneNumber");
-                person.setMobileNumber(scanner.nextLong());
+                person.setMobileNumber(scanner.next());
                 System.out.println("Enter ZipCode");
-                person.setZip(scanner.nextInt());
+                person.setZip(scanner.next());
                 System.out.println("Enter Email");
                 person.setEmail(scanner.next());
                 System.out.println("contact updated successfully.");
@@ -234,7 +234,7 @@ public class AddressBook {
                 sortedContacts.forEach(x-> System.out.println(x));
                 break;
             case 4:
-                sortedContacts = allContacts.stream().sorted((x,y) ->Integer.compare(x.getZip(),y.getZip())).collect(Collectors.toList());
+                sortedContacts = allContacts.stream().sorted((x,y) ->x.getZip().compareTo(y.getZip())).collect(Collectors.toList());
                 sortedContacts.forEach(x-> System.out.println(x));
                 break;
             case 5:
@@ -252,15 +252,48 @@ public class AddressBook {
         }
         return allContacts;
     }
-    void readAddressBook() throws FileNotFoundException {
-        FileIO.read();
+    void readAddressBook() throws IOException {
+        System.out.println("Select option \n1.read from txt \n2.read from csv \nback");
+        int option = scanner.nextInt();
+        switch (option) {
+            case 1:
+                FileIO.readTxtFile(new File(FileIO.PATH.concat("txt//")));
+                break;
+            case 2:
+                FileIO.readCSVFile(new File(FileIO.PATH.concat("csv//")));
+                break;
+            case 3:
+                break;
+            default:
+                readAddressBook();
+        }
+
+
     }
 
     void writeAddressBook() throws IOException {
-        for (String key: addressBookList.keySet()) {
-            FileIO.write(addressBookList.get(key),key);
+        System.out.println("Select option \n1.Write to txt \n2.write to csv \nback");
+        int option = scanner.nextInt();
+        switch (option) {
+            case 1:
+                for (String key : addressBookList.keySet()) {
+                    FileIO.writeTxt(addressBookList.get(key), key);
+                }
+                break;
+            case 2:
+                for (String key : addressBookList.keySet()) {
+                    FileIO.writeCSV(addressBookList.get(key), key);
+                }
+                break;
+            case 3:
+                break;
+            default:
+                writeAddressBook();
+                break;
+
         }
     }
 }
+
 
 

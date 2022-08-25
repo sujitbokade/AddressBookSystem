@@ -7,8 +7,8 @@ public class Contact {
         private String address;
         private String city;
         private String state;
-        private long mobileNumber;
-        private int zip;
+        private String mobileNumber;
+        private String zip;
         private String email;
 
         public String getFirstName() {
@@ -51,19 +51,19 @@ public class Contact {
             this.state = state;
         }
 
-        public long getMobileNumber() {
+        public String getMobileNumber() {
             return mobileNumber;
         }
 
-        public void setMobileNumber(long mobileNumber) {
+        public void setMobileNumber(String mobileNumber) {
             this.mobileNumber = mobileNumber;
         }
 
-        public int getZip() {
+        public String getZip() {
             return zip;
         }
 
-        public void setZip(int zip) {
+        public void setZip(String zip) {
             this.zip = zip;
         }
 
@@ -79,7 +79,7 @@ public class Contact {
 
         }
 
-        Contact(String firstName,String lastName,String address,String city,String state,long mobileNumber,int zip,String email){
+        Contact(String firstName,String lastName,String address,String city,String state,String mobileNumber,String zip,String email){
             this.firstName=firstName;
             this.lastName=lastName;
             this.address=address;
